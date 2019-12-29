@@ -32,8 +32,8 @@ function NavigationBar(props)  {
 </div>
   );
 
-  var LoggedInMenu  = (<div>
-    <nav style={{opacity:"50%"}} className="navbar navbar-inverse">
+  var LoggedInMenu  = (<div style={{zIndex:"0"}}> 
+    <nav style={{opacity:"50%",height:"52px"}} className="navbar navbar-inverse">
     <div className="container-fluid">
     <div className="navbar-header">
 <Link to="/"> <a id="home" style = {{fontFamily:"roboto"}} className="navbar-brand" href="#">ADDA HUB</a> </Link>
@@ -43,13 +43,15 @@ function NavigationBar(props)  {
 </div>
   <div>
   <ul  className="nav navbar-nav navbar-right">
-  <li style={{margin:"8px 5px 8px 15px"}}><input id="search_field" onChange={(e)=>{Utility.SearchPeople(e.target.value)}} class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search People"
+  <li style={{margin:"8px 5px 8px 15px"}}><input id="search_field" style={{width:"400px"}} onChange={(e)=>{Utility.SearchPeople(e.target.value)}} class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search People"
     aria-label="Search People"/>
-    <div style={{}} id="Sreach_list">
-
+    <div style={{display:"none"}} id="SearchDiv"  >
+           <ul  id="SearchDiv_ul">
+             
+           </ul>
     </div>
  </li><li style={{margin:"8px 10px 8px 2px"}}>
- <button class="btn btn-primary">Search</button>
+
  </li>
   <li><Link to="/profile"> Profile</Link></li>
 <li><a onClick={()=>{console.log("ho");props.logout()}}><span  className="glyphicon glyphicon-log-in">Logout</span> </a></li>

@@ -31,3 +31,40 @@
     .active-pink .fa, .active-pink-2 .fa {
     color: #f48fb1;
     }
+
+
+    #SearchDiv{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
+    border: 0;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 6px 0 rgba(32,33,36,0.28);
+    padding-bottom: 4px;
+    overflow: hidden;
+    z-index: 3;
+    }
+     #SearchDiv >ul {
+        list-style-type: disc;
+        padding: 5px;
+
+
+     }
+    .SearchDiv_li{
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        padding: 5px ;
+        list-style-position:inside;
+    border-bottom: 0.5px solid gray;
+
+    }
+
+    .SearchDiv_li:hover{
+        background-color: gray;
+        cursor: pointer;
+    }

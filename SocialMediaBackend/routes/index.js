@@ -117,7 +117,7 @@ router.post("/fetchfeed",isAuthenticatedRoute,(req,res)=>{
   var body = req.body;
 console.log("/fetchfeed",req.body);
   var friends = req.body.friendList;
-  console.log("friends"+  friends)
+  console.log("friends"+  friends)                                                                                                                      
 
   var  feeds = [];
 
@@ -125,6 +125,24 @@ Feed.find({"user.email":{$in:friends}}).sort({"Feed.createdAt":-1}).exec((err,do
   console.log(doc);
   res.send(doc);
 
+});
+
+
+router.post("/searchpeople",isAuthenticatedRoute,(req,res)=>{
+ console.log(req.body);
+ 
+
+ var SearchQuery = {FirstName:new RegExp(req.body.FirstName)}
+ if(req.body.hasOwnProperty("LastName")){
+   SearchQuery.LastName = new RegExp(req.body.LastName);
+ }
+
+ console.log(SearchQuery);
+ user.find(SearchQuery).exec().then(
+   doc =>{
+     res.send(doc);
+   }
+ )
 });
 
 
