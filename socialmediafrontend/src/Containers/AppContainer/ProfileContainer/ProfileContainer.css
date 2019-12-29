@@ -1,0 +1,11 @@
+.ProfileContainer{
+    text-align: left !important;
+}
+@media only screen and (max-width: 400px) {
+ .ImageDiv{
+     width: 100% !important;
+ }
+ .personalData{
+    width: 100% !important;
+}
+  }

@@ -1,0 +1,14 @@
+.NewsFeed{
+    position: absolute;
+    
+  left: 0;
+  right: 0;
+  margin:5px auto;
+  
+  width: 95%;
+  box-shadow: -1px 5px 13px grey;
+  padding: 10px;
+  height: auto;
+  padding:2%
+    
+}
