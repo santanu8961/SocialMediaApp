@@ -24,7 +24,9 @@ var sendStatus = (AppState)=>{
        },
        token:SessionController.getToken()
   }
-
+    if(feed.Feed.data === ""){
+      NotificationController.createNotification("warning","Nothing To Share!!");
+    }else{
  Axios.post("http://localhost:3000/createfeed",feed).then((res)=>{
     if(res.data.hasOwnProperty("info") ){
       NotificationController.createNotification("info",res.data.info);
@@ -39,6 +41,7 @@ var sendStatus = (AppState)=>{
       return true;
     }
  })
+}
 }
 
 

@@ -13,7 +13,7 @@ NotificationController.createNotification = (type,msg) => {
       }else if (type === "warning"){
         NotificationManager.warning(msg, 'Close after 3000ms', 3000);
       }else if (type === "error"){
-        NotificationManager.error(msg, 'Error', 5000);
+        NotificationManager.error(msg, 'Error', 5000);  
         ;
 
       }

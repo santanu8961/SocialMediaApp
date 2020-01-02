@@ -18,6 +18,7 @@ import Axios from 'axios';
 import { useHistory,Redirect } from "react-router-dom";
 import ProfileContainer from './Containers/AppContainer/ProfileContainer/ProfileContainer';
 import NewsFeedController from "./Controllers/NewsFeedController";
+import ViewProfile from './Components/ViewProfile/ViewProfile';
 
 
 
@@ -148,7 +149,7 @@ class App extends Component {
         <Route  path="/login" component={()=> this.state.isAuthenticated ? null : <LoginComponent Login = {this.LoginFunction} />} />
         <Route  path="/register" exact component={()=> this.state.isAuthenticated ? null : <RegisterComponent Login = {this.LoginFunction} />}/>
         <Route path="/profile" exact component = {()=> this.state.isAuthenticated ? <ProfileContainer AppState={this} user = {this.state.ProfileData} /> : null}  />
-        
+        <Route path="/viewprofile/:userid" exact component = {()=> this.state.isAuthenticated ? <ViewProfile AppState={this} user = {this.state.ProfileData} /> : null}  />
         </Switch>
     
    </div>

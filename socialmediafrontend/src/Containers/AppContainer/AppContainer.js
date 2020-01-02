@@ -4,6 +4,7 @@ import NewsFeed from './NewsFeed/NewsFeed';
 import StatusBar from '../../Components/StatusBar';
 import NewsFeedController from '../../Controllers/NewsFeedController';
 import SessionController from '../../Controllers/SessionController';
+import './AppContainer.css';
 
 
 class AppContainer  extends Component {
@@ -57,7 +58,7 @@ class AppContainer  extends Component {
     
     render() { 
         return ( 
-            <div class="AppContainer">
+            <div className="AppContainer">
             <StatusBar AppContainer={this} />
                <NewsFeed posts={this.state.posts}  user={this.state.user} />
             </div>
