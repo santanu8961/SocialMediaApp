@@ -95,12 +95,24 @@ console.log("elem",elem,document.getElementById("Save"),document.getElementById(
 
 
     var ProfilePictureUpload = (file)=>{
-        console.log(file);
-        Axios.post("http://localhost:3000/saveprofilepicture",{file:file.toString(),token:SessionController.getToken()}).then(e=>{
+
+        console.log("file",file);
+        var data = new FormData();
+        // data.set()
+        data.set("image",file,file.name);
+        data.set("token",SessionController.getToken());
+        console.log("data",data)
+        Axios.post("http://localhost:3000/saveprofilepicture",data).then(e=>{
             console.log("response +++>>>>>> Files :"+e.data)
         });
 
     }
+
+    // var fileSelectedHandler = event =>{
+    //     console.log(event.target.files[0]); 
+    // }
+
+
 
 
     var SaveProfileData = ()=>{
@@ -138,8 +150,8 @@ console.log("elem",elem,document.getElementById("Save"),document.getElementById(
        
            <div style={{"width":"26%",left:"0",position:"absolute",padding:"10px",margin:"10px",boxShadow:"grey 4px 5px 12px"}} className="ImageDiv">
            
-        <input type="file" id="imgUploader" multiple />
-        <input type="button" name="submit" onClick={(e)=>{e.preventDefault(); ProfilePictureUpload(document.getElementById("imgUploader").files[0])}} id="btnSubmit" value="Upload" /> 
+        <input type="file" id="imgUploader"  />
+        <input type="submit" name="submit" onClick={(e)=>{e.preventDefault(); ProfilePictureUpload(document.getElementById("imgUploader").files[0])}} id="btnSubmit" value="Upload" /> 
 
            </div>
            <div style={{width:"70%",right:"0",position:"absolute",margin:"10px",padding:"30px",boxShadow:"grey 4px 5px 12px"}}className="personalData">

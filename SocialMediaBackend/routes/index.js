@@ -6,6 +6,8 @@ var salt = bcrypt.genSaltSync(10);
 var {LocalStorage} = require('node-localstorage');
 
 var Feed = require("../models/Feed");
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 
 
@@ -39,7 +41,8 @@ router.post('/isloggedin',(req,res)=>{
 
 var isAuthenticatedRoute = (req,res,next) =>{
 
-  console.log("isAuthenticated",req.body);
+  // console.log("isAuthenticated",req.body);
+  console.log("req.headers" ,req.headers)
   if(localStorage.getItem("token") === req.body.token){
     console.log("Authenticated User");
      next();
@@ -52,15 +55,17 @@ var isAuthenticatedRoute = (req,res,next) =>{
 router.post("/getuserdata",isAuthenticatedRoute,(req,res)=>{
   console.log(req.body.email)
   user.find({email:req.body.email},(err,doc)=>{
-      console.log(doc);
+      console.log("----------------------->",doc);
       res.send(doc[0]);
   })
 })
 
 
-router.post("/saveprofilepicture",isAuthenticatedRoute,(req,res)=>{
-  console.log(req.files);
-    console.log(req.body.file.toString());
+router.post("/saveprofilepicture",upload.single("avatar"),(req,res)=>{
+  console.log("inside it");
+  console.log(req.file)
+  // console.log("Hello World",req.file);
+    // console.log(req.body.file.toString());
     
 });
 router.post("/updateuserdata",isAuthenticatedRoute,(req,res)=>{
@@ -123,10 +128,10 @@ console.log("/fetchfeed",req.body);
 
 Feed.find({"user.email":{$in:friends}}).sort({"Feed.createdAt":-1}).exec((err,doc)=>{
   console.log(doc);
-  res.send(doc);
+  res.send(doc);  console.log(doc);
+  // res.send(doc);
 
 });
-
 
 router.post("/searchpeople",isAuthenticatedRoute,(req,res)=>{
  console.log(req.body);

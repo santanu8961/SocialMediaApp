@@ -1,0 +1,7 @@
+.text{
+    position: absolute;
+    z-index: 999;
+    top:40%;
+    margin:0 0 0 5%;
+    color: forestgreen;
+}

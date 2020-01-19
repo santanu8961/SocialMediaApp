@@ -21,11 +21,7 @@ function NavigationBar(props)  {
 <div className="navbar-header">
 <Link to="/"> <a id="home" style = {{fontFamily:"roboto"}} className="navbar-brand" href="#">ADDA HUB</a> </Link>
 </div>
-<ul className="nav navbar-nav">
-<li className="active"><a href="#">Home</a></li>
-<li><a href="#">Page 1</a></li>
-<li><a href="#">Page 2</a></li>
-</ul>
+
 <ul className="nav navbar-nav navbar-right">
 <li><Link to="/register"><a ><span className="glyphicon glyphicon-user"></span>Sign Up</a></Link> </li>
 <li><Link to="/login"><a><span  className="glyphicon glyphicon-log-in"></span> Login</a></Link></li>

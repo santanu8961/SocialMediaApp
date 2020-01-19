@@ -14,7 +14,7 @@ function News(props){
 
 
          <div style={{border:"1px solid gray" , margin:"10px 5px",padding:"10px"}} className="contentDiv">
-         <p align="left" style={{padding:"2px 5px"}}>  {props.post.Feed.data} </p>  
+         <p align="left" style={{padding:"2px 5px",whiteSpace:"pre-wrap"}}>  {props.post.Feed.data} </p>  
          </div>
 
             <div style={{border:"1px solid gray" , margin:"5px 2px",padding:"10px"}} className="likecommentDiv">

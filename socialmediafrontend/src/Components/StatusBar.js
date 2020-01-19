@@ -7,6 +7,7 @@ import NewsFeedController from '../Controllers/NewsFeedController';
 
 
 
+
  function StatusBar(props){
 
 
@@ -55,7 +56,7 @@ var sendStatus = (AppState)=>{
     
           <div style={{marginTop:"15px"}} class="panel panel-default">
                   <div class="panel-body">
-                    <textarea style={{width:"100%",height:"90px"}}   id="createPost"  type="text" class="form-control" placeholder="What are you up to?"/>
+                    <textarea style={{width:"100%",height:"90px"}}   id="createPost"  type="text" class="form-control" placeholder="What are you up to?"></textarea>
                   </div>
                     <div style={{padding:"10px 15px 25px 15px"}} class="panel-footer">
                       <div class="btn-group">
