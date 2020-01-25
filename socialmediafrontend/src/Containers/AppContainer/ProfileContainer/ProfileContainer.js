@@ -102,7 +102,11 @@ console.log("elem",elem,document.getElementById("Save"),document.getElementById(
         data.set("image",file,file.name);
         data.set("token",SessionController.getToken());
         console.log("data",data)
-        Axios.post("http://localhost:3000/saveprofilepicture",data).then(e=>{
+        Axios.post("http://localhost:3000/saveprofilepicture",data,{
+            headers:{
+                'Content-Type':'multipart/form-data'
+            }
+        }).then(e=>{
             console.log("response +++>>>>>> Files :"+e.data)
         });
 

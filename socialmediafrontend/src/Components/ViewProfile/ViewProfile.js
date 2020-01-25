@@ -2,6 +2,7 @@ import './ViewProfile.css';
 import React,  { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import NewsFeedController from '../../Controllers/NewsFeedController';
+import controller from '../../Controllers/ProfileController';
 
 function ViewProfile(props){
 console.log(props.user)
@@ -23,9 +24,14 @@ if(UserId === props.user.id){
        setLastName(user.LastName);
        setage(user.age);
        setemail(user.email);
-        // setfriends(user.friends);
+         setfriends(user.friends);
   })
 }
+
+// var addotdeletefriend = (addordelete)=>{
+//   var x=  controller.modifyFriend(addordelete,props.user.id);
+//   console.log(x);
+// }
 
 return(
     <div style={{boxShadow:"7px 2px 15px gray",padding:"20px",margin:"10px",height:"88vh"}} className="ViewProfile">
@@ -34,7 +40,7 @@ return(
      <p> <b> Age : </b> <span id="age">{age}</span></p>
      <p> <b> Email Id : </b> <span id="email">{email}</span></p>
      <div>
-        {friends.includes(props.user.id) ? <button>Unfriend</button>:<button>Add Friend </button>}
+        {friends.includes(props.user.id) ? <button >Unfriend</button>:<button >Add Friend </button>}
      </div>
 
     </div>

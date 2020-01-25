@@ -14,6 +14,19 @@ controller.saveProfileData = async (ProfileData)=>{
      return x;
 };
 
+controller.modifyFriend = async (addordelete,friend)=>{
+    var x = {}
+  await Axios.post("http://localhost:3000/addordeletefriend",{
+       token:SessionController.getToken(),
+       addordelete:addordelete,
+       friend:friend
+   }).then(res=>{
+        x = res.data
+   })
+
+   return x;
+}
+
 
 
 

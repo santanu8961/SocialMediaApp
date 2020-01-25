@@ -59,11 +59,13 @@ router.post("/getuserdata",isAuthenticatedRoute,(req,res)=>{
       res.send(doc[0]);
   })
 })
+router.post("/addordeletefriend",isAuthenticatedRoute,(req,res)=>{
+  console.log("req.body",req.body);
+})
 
-
-router.post("/saveprofilepicture",upload.single("avatar"),(req,res)=>{
+router.post("/saveprofilepicture",isAuthenticatedRoute,(req,res)=>{
   console.log("inside it");
-  console.log(req.file)
+  // console.log(req.file)
   // console.log("Hello World",req.file);
     // console.log(req.body.file.toString());
     
